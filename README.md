@@ -1,1 +1,1 @@
-# ModeloER_Farmacia
+# Modelo Entidad Relación Farmacia
