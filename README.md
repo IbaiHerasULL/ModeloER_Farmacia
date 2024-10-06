@@ -11,7 +11,6 @@ Descripción: Representa los productos farmacéuticos que se venden en la farmac
   - `Nombre`: Nombre comercial del medicamento (ejemplo: Paracetamol).
   - `Tipo`: Clasificación del medicamento (ejemplo: Analgésico, Antibiótico).
   - `Tipo de Venta`: Indica si es de venta libre o requiere receta (ejemplo: Venta Libre, Bajo Receta).
-  - `Precio`: Precio del medicamento en la farmacia (ejemplo: 10.99).
 
 ### 2. Cliente
 Descripción: Representa a los clientes que compran medicamentos en la farmacia.
@@ -88,7 +87,6 @@ Descripción: Representa los laboratorios que fabrican los medicamentos.
   - `Nombre`: Paracetamol
   - `Tipo`: Analgésico
   - `Tipo de Venta`: Venta Libre
-  - `Precio`: 10.99
 
 - **Cliente**
   - `Código`: C001
