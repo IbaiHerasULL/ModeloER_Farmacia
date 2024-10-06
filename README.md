@@ -82,32 +82,65 @@ Descripción: Representa los laboratorios que fabrican los medicamentos.
 
 ## Ejemplos Ilustrativos del Dominio de los Atributos
 
+### Atributos de las Entidades
 - **Medicamento**
-  - `Código`: M001
-  - `Nombre`: Paracetamol
-  - `Tipo`: Analgésico
-  - `Tipo de Venta`: Venta Libre
+  - `Código`: "M001", "M002", "M003".
+  - `Nombre`: "Paracetamol", "Ibuprofeno".
+  - `Tipo`: "Analgésico", "Antibiótico".
+  - `Tipo de Venta`: "Venta Libre", "Bajo Receta".
 
 - **Cliente**
-  - `Código`: C001
-  - `Con Crédito`: Sí
+  - `Código`: "C001", "C002".
+  - `Con Crédito`: "Sí", "No".
 
 - **Enfermedad**
-  - `Nombre`: Gripe
+  - `Nombre`: "Gripe", "Migraña".
 
 - **Cuenta Bancaria**
-  - `Número de cuenta`: ES7621000000001234567891
-  - `Dinero en la cuenta`: 5000.00
+  - `Número de cuenta`: "ES7621000000001234567891", "ES7621000000009876543210".
+  - `Dinero en la cuenta`: 5000.00, 3000.50.
 
 - **Farmacia**
-  - `Nombre`: Farmacia Madrid Centro
+  - `Nombre`: "Farmacia Madrid Centro", "Farmacia Sevilla Sur".
 
 - **Laboratorio**
-  - `Nombre`: Laboratorios Pfizer
-  - `Teléfono`: +34 912345678
-  - `Fax`: 912345679
-  - `Contacto`: Juan López
-  - `Dirección Postal`: Calle Mayor, 123, Madrid
+  - `Nombre`: "Laboratorios Pfizer", "Laboratorios Merck".
+  - `Teléfono`: "+34 912345678", "+34 912345679".
+  - `Fax`: "+34 912345680", "+34 912345681".
+  - `Contacto`: "María López", "Pedro García".
+  - `Dirección Postal`: "Calle Mayor, 123, Madrid", "Calle de la Ciencia, 45, Madrid".
+
+### Atributos de las Relaciones
+- **Enfermedad es curada por Medicamento**
+  - Relaciones posibles: 
+    - "Gripe" curada por "Paracetamol", "Ibuprofeno".
+    - "Migraña" curada por "Ibuprofeno", "Aspirina".
+
+- **Farmacia tiene Medicamento**
+  - Relaciones posibles: 
+    - "Farmacia Madrid Centro" tiene "Paracetamol" a 10.99 con `Ud. Stock` de 100 y `Un. Vendidas` de 20.
+    - "Farmacia Sevilla Sur" tiene "Ibuprofeno" a 15.50 con `Ud. Stock` de 250 y `Un. Vendidas` de 50.
+
+- **Cliente tiene Cuenta Bancaria**
+  - Relaciones posibles: 
+    - "Juan Pérez" tiene cuentas "ES7621000000001234567891", "ES7621000000009876543210".
+    - "Ana García" tiene cuenta "ES7621000000002345678901".
+
+- **Farmacia fabrica Medicamento**
+  - Relaciones posibles: 
+    - "Farmacia Madrid Centro" fabrica "Ibuprofeno", "Paracetamol".
+    - "Farmacia Sevilla Sur" fabrica "Aspirina", "Paracetamol".
+
+- **Cliente compra Medicamento en Farmacia**
+  - Relaciones posibles: 
+    - "Juan Pérez" compra "Paracetamol" en "Farmacia Madrid Centro" el "2024-10-06", adquiriendo "2" unidades.
+    - "Ana García" compra "Ibuprofeno" en "Farmacia Sevilla Sur" el "2024-10-06", adquiriendo "1" unidad.
+
+- **Farmacia compra Medicamento en Laboratorio**
+  - Relaciones posibles: 
+    - "Farmacia Madrid Centro" compra "Ibuprofeno" en "Laboratorio Pfizer".
+    - "Farmacia Sevilla Sur" compra "Aspirina" en "Laboratorios Merck".
+
 
 ## Restricciones Semánticas
 
