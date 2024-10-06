@@ -49,29 +49,35 @@ Este documento describe el modelo entidad-relación (ER) utilizado en el sistema
 
 ## Relaciones Definidas
 
-### 1. **`Medicamento` *cura* `Enfermedad` (1:N)**
-   - **Descripción**: Un medicamento puede estar indicado para curar una o varias enfermedades.
-   - **Ejemplo**: El medicamento "Paracetamol" puede curar las enfermedades "Gripe" y "Fiebre".
+### Relaciones Binarias
 
-### 2. **`Medicamento` *es fabricado por* `Laboratorio` (N:1)**
-   - **Descripción**: Cada medicamento es fabricado por un único laboratorio, pero un laboratorio puede fabricar varios medicamentos.
-   - **Ejemplo**: "Laboratorios Pfizer" fabrica el medicamento "Ibuprofeno".
+### 1. **`Enfermedad` *es curada por* `Medicamento` (N:M)**
+   - **Descripción**: Una enfermedad puede ser tratada por varios medicamentos, y un medicamento puede ser utilizado para tratar varias enfermedades.
+   - **Ejemplo**: La enfermedad "Gripe" puede ser tratada por los medicamentos "Paracetamol" y "Ibuprofeno", y el "Paracetamol" también puede ser usado para tratar la "Fiebre".
 
-### 3. **`Cliente` *realiza* `Compra` (1:N)**
-   - **Descripción**: Un cliente puede realizar varias compras, pero cada compra es realizada por un solo cliente.
-   - **Ejemplo**: El cliente "Juan Pérez" realiza una compra de "Paracetamol" y "Ibuprofeno".
+### 2. **`Farmacia` *tiene* `Medicamento` (N:M)**
+   - **Descripción**: Una farmacia puede tener varios medicamentos en su inventario, y un medicamento puede estar disponible en varias farmacias.
+   - **Ejemplo**: La "Farmacia Madrid Centro" tiene los medicamentos "Ibuprofeno" y "Paracetamol", y esos mismos medicamentos también pueden estar disponibles en otras farmacias.
 
-### 4. **`Compra` *incluye* `Medicamento` (N:M)**
-   - **Descripción**: Una compra puede incluir varios medicamentos y un medicamento puede estar presente en varias compras.
-   - **Ejemplo**: En una compra, se puede adquirir tanto "Ibuprofeno" como "Paracetamol".
+### 3. **`Cliente` *tiene* `Cuenta Bancaria` (1:N)**
+   - **Descripción**: Un cliente puede tener varias cuentas bancarias, pero cada cuenta bancaria está asociada a un solo cliente.
+   - **Ejemplo**: El cliente "Juan Pérez" puede tener dos cuentas bancarias, una con número "ES7621000000001234567891" y otra con número "ES7621000000009876543210".
 
-### 5. **`Cliente` *tiene* `Cuenta Bancaria` (1:1)**
-   - **Descripción**: Un cliente solo puede tener una cuenta bancaria si tiene crédito disponible en la farmacia.
-   - **Ejemplo**: El cliente "Juan Pérez" tiene la cuenta bancaria con número "ES7621000000001234567891" porque tiene crédito.
+### 4. **`Farmacia` *fabrica* `Medicamento` (N:M)**
+   - **Descripción**: Una farmacia puede fabricar varios medicamentos, y un medicamento puede ser fabricado por varias farmacias.
+   - **Ejemplo**: La "Farmacia Madrid Centro" fabrica los medicamentos "Ibuprofeno" y "Paracetamol", y esos mismos medicamentos pueden ser fabricados por otras farmacias también.
+   - 
 
-### 6. **`Farmacia` *tiene relación con* `Laboratorio` (1:N)**
-   - **Descripción**: Una farmacia puede trabajar con varios laboratorios, pero un laboratorio puede trabajar con una sola farmacia.
-   - **Ejemplo**: La farmacia "Farmacia Madrid Centro" tiene relación con los laboratorios "Pfizer" y "Roche".
+### Relaciones Ternarias
+
+### 5. **`Cliente` *compra* `Medicamento` *en* `Farmacia` (N:M:P)**
+   - **Descripción**: Un cliente puede comprar varios medicamentos en una farmacia, y una farmacia puede vender varios medicamentos a distintos clientes.
+   - **Ejemplo**: El cliente "Juan Pérez" compra "Paracetamol" en la "Farmacia Madrid Centro", y otros clientes también pueden comprar "Paracetamol" en esa farmacia.
+
+### 6. **`Farmacia` *compra* `Medicamento` *en* `Laboratorio` (N:M:P)**
+   - **Descripción**: Una farmacia puede comprar varios medicamentos, y un medicamento puede ser comprados por varias farmacias en distintos laboratorios.
+   - **Ejemplo**: La "Farmacia Madrid Centro" compra el medicamento "Ibuprofeno" en el "Laboratorio Pfizer", y ese mismo medicamento puede ser comprado también en otros laboratorios por otras farmacias.
+
 
 ## Ejemplos ilustrativos del dominio de los atributos
 
