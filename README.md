@@ -19,11 +19,6 @@ Este documento describe el modelo entidad-relación (ER) utilizado en el sistema
    - **Descripción**: Representa a los clientes que compran medicamentos en la farmacia.
    - **Atributos**:
      - `Código`: Identificador único del cliente (ejemplo: C001).
-     - `Nombre`: Nombre del cliente (ejemplo: Juan Pérez).
-     - `Teléfono`: Número de contacto del cliente (ejemplo: +34 912345678).
-     - `Fax`: Número de fax del cliente (opcional).
-     - `Contacto`: Persona de contacto (opcional).
-     - `Dirección Postal`: Dirección postal del cliente (ejemplo: Calle Mayor, 123, Madrid).
      - `Con Crédito`: Indica si el cliente tiene crédito en la farmacia (ejemplo: Sí/No).
 
 ### 3. **Enfermedad**
@@ -46,7 +41,11 @@ Este documento describe el modelo entidad-relación (ER) utilizado en el sistema
    - **Descripción**: Representa los laboratorios que fabrican los medicamentos.
    - **Atributos**:
      - `Nombre`: Nombre del laboratorio (ejemplo: Laboratorios Pfizer).
-     - `Dirección`: Ubicación física del laboratorio (ejemplo: Calle de la Ciencia, 45, Barcelona).
+     - `Teléfono`: Número de contacto del cliente (ejemplo: +34 912345678).
+     - `Fax`: Número de fax del cliente.
+     - `Contacto`: Persona de contacto.
+     - `Dirección Postal`: Dirección postal (ejemplo: Calle Mayor, 123, Madrid).
+     - `Dirección`: Ubicación física del laboratorio (ejemplo: Calle de la Ciencia, 45, Madrid).
 
 ## Relaciones Definidas
 
@@ -76,21 +75,7 @@ Este documento describe el modelo entidad-relación (ER) utilizado en el sistema
 
 ## Ejemplos ilustrativos del dominio de los atributos
 
-1. **Medicamento:**
-   - `Nombre`: Ibuprofeno, Paracetamol.
-   - `Tipo`: Analgésico, Anti-inflamatorio.
-   - `Precio`: Valores numéricos, ej. 10.99 (en euros).
-   - `Ud. Stock`: Valores enteros, ej. 100 unidades disponibles.
-   - `Un. Vendidas`: Valores enteros, ej. 20 unidades vendidas.
 
-2. **Cliente:**
-   - `Nombre`: Juan Pérez, María García.
-   - `Teléfono`: +34 912345678.
-   - `Dirección Postal`: Calle Mayor, 123, Madrid.
-   - `Con Crédito`: Sí, No.
-
-3. **Enfermedad:**
-   - `Nombre`: Gripe, Fiebre, Migraña.
 
 ## Restricciones Semánticas
 
@@ -102,7 +87,4 @@ Este documento describe el modelo entidad-relación (ER) utilizado en el sistema
    - **Restricción**: Un cliente solo puede tener una cuenta bancaria si tiene crédito en la farmacia.
    - **Implementación**: Validación lógica que asegure que el atributo `Con Crédito` sea "Sí" antes de permitir asociar una cuenta bancaria.
 
-3. **Medicamento Fabricado por un Solo Laboratorio:**
-   - **Restricción**: Un medicamento solo puede ser fabricado por un laboratorio.
-   - **Implementación**: Restringido por la cardinalidad de la relación `Medicamento` *es fabricado por* `Laboratorio` (N:1).
 
